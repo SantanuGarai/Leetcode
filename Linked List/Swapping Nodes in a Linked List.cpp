@@ -23,11 +23,12 @@
  * Example 5:
  * Input: head = [1,2,3], k = 2
  * Output: [1,2,3]
- * Constraints:
  *
+ * Constraints:
  * The number of nodes in the list is n.
  * 1 <= k <= n <= 105
  * 0 <= Node.val <= 100
+ *
  *
  * Solutions:
  *
