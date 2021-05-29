@@ -70,10 +70,11 @@ public:
 };
 
 
+Another Solution:
+
 public int sumNumbers(TreeNode root) {
 	return sum(root, 0);
 }
-
 public int sum(TreeNode n, int s){
 	if (n == null) return 0;
 	if (n->right == null && n->left == null) return s*10 + n->val;
