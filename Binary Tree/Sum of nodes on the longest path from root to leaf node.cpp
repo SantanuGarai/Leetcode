@@ -48,17 +48,30 @@ Solutions:
 class Solution
 {
 public:
-int ans;
-    int helper(Node* root,int sum,int num){
-        if(!root){
-           ans = sum;
-           return num;
+    void sumOfLongRootToLeafPathUtil(Node *root, int sum, int len, int &maxLen, int &maxSum)
+    {
+        if (!root)
+        {
+            if (maxLen < len)
+            {
+                maxLen = len;
+                maxSum = sum;
+            }
+            else if (maxLen == len && maxSum < sum)
+                maxSum = sum;
+            return;
         }
-        return max(helper(root->left,sum+ root->data,num+1) , helper(root->right,sum+ root->data,num+1));
+        sumOfLongRootToLeafPathUtil(root->left, sum + root->data, len + 1, maxLen, maxSum);
+        sumOfLongRootToLeafPathUtil(root->right, sum + root->data, len + 1, maxLen, maxSum);
     }
+
     int sumOfLongRootToLeafPath(Node *root)
     {
-       helper(root,0,0);
-       return ans;
+        if (!root)
+            return 0;
+        // code here
+        int maxSum = INT_MIN, maxLen = 0;
+        sumOfLongRootToLeafPathUtil(root, 0, 0, maxLen, maxSum);
+        return maxSum;
     }
 };
