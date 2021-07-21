@@ -83,7 +83,9 @@ public:
   class Solution {
     vector<int>parent;
     int find(int x) {
-        return (parent[x] == x) ? x : find(parent[x]);
+        if(parent[x] == x) 
+              return x;
+        return  parent[x] = find(parent[x]);
     }
 public:
     int makeConnected(int n, vector<vector<int>>& connections) {
